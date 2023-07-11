@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christo <christo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 01:04:04 by christo           #+#    #+#             */
-/*   Updated: 2023/07/08 01:15:03 by christo          ###   ########.fr       */
+/*   Updated: 2023/07/10 19:53:40 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "Zombie.hpp"
 
 void	randomChump(std::string name){
-	Zombie* zombie = new Zombie(name);
-	zombie->annouce();
-	delete zombie;
+	Zombie zombie = Zombie(name);
+	zombie.annouce();
 }
