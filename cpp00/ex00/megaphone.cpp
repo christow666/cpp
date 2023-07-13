@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:14:39 by cperron           #+#    #+#             */
-/*   Updated: 2023/07/06 16:12:34 by cperron          ###   ########.fr       */
+/*   Updated: 2023/07/12 14:39:09 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ std::string	concatenateStrings(int argc, char **argv){
 
 void	megaphone(const std::string& outputMessage){
 	std::string upperMessage = outputMessage;
-	// for (std::string::iterator it = upperMessage.begin(); it != upperMessage.end(); it++){
-	// 	*it = std::toupper(*it);
-	// }
 	for (int i = 0; upperMessage[i]; i++){
 		upperMessage[i] = std::toupper(upperMessage[i]);
 	}

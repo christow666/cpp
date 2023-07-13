@@ -1,42 +1,91 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christo <christo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:20:02 by cperron           #+#    #+#             */
-/*   Updated: 2023/07/07 21:55:45 by christo          ###   ########.fr       */
+/*   Updated: 2023/07/12 14:40:28 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phoneBook.hpp"
+#include "PhoneBook.hpp"
 
-int	main(int argc, char** argv) {
-	PhoneBook phoneBook;
-	std::string input;
-	int	numberOfContact = 0;
+PhoneBook::PhoneBook() : contacts(new Contact*[8]), contactsCount(0) {}
+
+PhoneBook::~PhoneBook() {
+    for (int i = 0; i < contactsCount; i++) {
+        delete contacts[i];
+    }
+    delete[] contacts;
+}
 	
-	if (argc != 1) {
-		std::cout << "Executable take no argument." << std::endl;
-		return 1;
+void	PhoneBook::addContact() {
+	if (contactsCount < 8) {
+    	contacts[contactsCount] = new Contact(
+			contacts[contactsCount]->fillField("Enter your first name."),
+			contacts[contactsCount]->fillField("Enter your last name."),
+			contacts[contactsCount]->fillField("Enter your nickname."),
+			contacts[contactsCount]->fillField("Enter your phone number."),
+			contacts[contactsCount]->fillField("Enter your darkest secret."));
+        contactsCount++;
 	}
-	while (true) {
-		std::cout << " Program accept only those entries : ADD, SEARCH & EXIT." << std::endl;
-		std::getline(std::cin, input);
-		if (input == "ADD") {
-			phoneBook.addContact();
-			std::cout << "Contact added." << std::endl;
-			if (numberOfContact < 8)
-				numberOfContact++;
+	else {
+		contactsCount = 0;
+        addContact();
+    }
+}
+
+std::string	PhoneBook::resizedInfo(std::string info) const{
+	if (info.length() > 10)
+		return (info.substr(0, 9) + ".");
+	else
+		return (info);
+}
+	
+void	PhoneBook::displaycontact(int index) const{
+		std::cout << contacts[index]->getFirstName() << std::endl;
+		std::cout << contacts[index]->getLastName() << std::endl;
+		std::cout << contacts[index]->getNickName() << std::endl;
+		std::cout << contacts[index]->getPhoneNumber() << std::endl;
+		std::cout << contacts[index]->getdarkestSecret() << std::endl;
+}
+	
+int	PhoneBook::selectIndex(int numberOfContact) const{
+	std::string index;
+	int i;
+
+	while (true){
+		std::cout << "Enter contact number 1 - 8." << std::endl;
+		std::getline(std::cin, index);
+		if(std::cin.fail()){
+			return (-2);
 		}
-		else if (input == "SEARCH") {
-			phoneBook.displayContactsList(numberOfContact);
-		}
-		else if (input == "EXIT") {
-			std::cout << "Goodbye" << std::endl;
-			return 0;
+		std::istringstream iss(index);
+		if (iss >> i && i >= 1 && i <= 8){
+			if (i - 1 >= numberOfContact)
+				std::cout << "Contact is empty." << std::endl;
+			else
+				return(i - 1);
 		}
 	}
-	return 0;
+}
+
+void	PhoneBook::displayContactsList(int numberOfContact) const{
+	if (numberOfContact == 0){	
+		std::cout << "Contact list is empty." << std::endl;
+		return;
+	}
+	else for (int i = 0; i < numberOfContact; i++){	
+		std::cout << "| " << std::setw(10) << i + 1 << " | ";
+		std::cout << std::setw(10) << resizedInfo(contacts[i]->getFirstName()) << " | ";
+		std::cout << std::setw(10) << resizedInfo(contacts[i]->getLastName()) << " | ";
+		std::cout << std::setw(10) << resizedInfo(contacts[i]->getNickName()) << " | " << std::endl;
+	}
+	int ret = selectIndex(numberOfContact);
+	if (ret == -2)
+		return;
+	else
+		displaycontact(ret);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: christo <christo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 23:45:27 by christo           #+#    #+#             */
-/*   Updated: 2023/07/08 01:22:13 by christo          ###   ########.fr       */
+/*   Updated: 2023/07/11 17:28:48 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,15 @@
 
 class Zombie {
 private:
-
+	Zombie();
 	std::string name;
 	
 public:
-	Zombie(const std::string name) : name(name) {}
+	Zombie(const std::string name);
 	
-	
-	void annouce(void){
-		std::cout << name << " BraiiiiiiinnnzzzZ.." << std::endl;
-	}
+	void annouce(void);
 
-	~Zombie() {
-        std::cout << "Destructor called for Zombie " << name << std::endl;
-    }
+	~Zombie();
 } ;
 
 void	randomChump(std::string name);

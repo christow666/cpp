@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 21:44:58 by christo           #+#    #+#             */
-/*   Updated: 2023/07/12 14:39:59 by cperron          ###   ########.fr       */
+/*   Created: 2023/07/12 21:55:08 by cperron           #+#    #+#             */
+/*   Updated: 2023/07/12 22:47:16 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
 #include <iostream>
 #include <string>
-#include <iomanip>
-#include <sstream>
 
-#include "Contact.hpp"
-
-class PhoneBook {
-public:
-    PhoneBook();
-	
-    ~PhoneBook();
-	
-	void		addContact();
-	std::string	resizedInfo(std::string info) const;
-	void		displaycontact(int index) const;
-	int			selectIndex(int numberOfContact) const;
-	void		displayContactsList(int numberOfContact) const;
-
+class Weapon {
 private:
-    Contact** contacts;
-    int contactsCount;
-};
+	std::string type;
+	
+public:
+	Weapon();
+	Weapon(std::string type);
+	
+	const std::string&	getType();
+	void	setType(std::string type);
+} ;
 
 #endif

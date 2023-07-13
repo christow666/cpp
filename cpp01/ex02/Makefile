@@ -1,15 +1,13 @@
-NAME = phonebook
+NAME = BrainThisIsHi
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-
+ 
 RM = rm -rf
 
 SRC =	main.cpp\
-	PhoneBook.cpp\
-	Contact.cpp
-
+		RandomColor.cpp
 
 OBJS = $(SRC:.cpp=.o)
 

@@ -1,22 +1,36 @@
 NAME = megaphone
 
-CFLAGS = -std=c++98 -Wall -Wextra -Werror
-
 CC = c++
 
-SRC = megaphone.cpp
-
-OBJ = $(SRC:.cpp=.o)
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
-all : $(NAME) $(SRC)
+SRC =	megaphone.cpp
 
-$(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-clean : 
-	$(RM) $(OBJ)
+OBJS = $(SRC:.cpp=.o)
 
-fclean : clean
-	$(RM) $(NAME)
+all: $(NAME)
+
+$(NAME): $(OBJS)
+		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean: 
+		$(RM) ${OBJS}
+
+fclean:clean
+		$(RM) $(NAME)
+
+re:fclean all
+
+run:all
+	./$(NAME)
+
+leaks:all
+	 valgrind --leak-check=yes ./$(NAME)
+
+.PHONY: all clean re fclean run leaks

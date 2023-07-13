@@ -1,27 +1,38 @@
 NAME = BraiiiiiiinnnzzzZ
 
-CFLAGS = -std=c++98 -Wall -Wextra -Werror
-
 CC = c++
 
-SRC = main.cpp\
-	newZombie.cpp\
-	randomChump.cpp
-	
-OBJ = $(SRC:.cpp=.o)
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
-all : $(NAME) $(SRC)
+SRC = main.cpp\
+	Zombie.cpp\
+	newZombie.cpp\
+	randomChump.cpp
 
-$(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+OBJS = $(SRC:.cpp=.o)
 
-run : $(NAME) $(SRC)
+all: $(NAME)
+
+$(NAME): $(OBJS)
+		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean: 
+		$(RM) ${OBJS}
+
+fclean:clean
+		$(RM) $(NAME)
+
+re:fclean all
+
+run:all
 	./$(NAME)
-	
-clean : 
-	$(RM) $(OBJ)
 
-fclean : clean
-	$(RM) $(NAME)
+leaks:all
+	 valgrind --leak-check=yes ./$(NAME)
+
+.PHONY: all clean re fclean run leaks
