@@ -1,4 +1,4 @@
-NAME = Attack
+NAME = Karen
 
 CC = c++
 
@@ -7,9 +7,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 SRC =	main.cpp\
-		Weapon.cpp\
-		HumanA.cpp\
-		HumanB.cpp
+		Karen.cpp
 
 OBJS = $(SRC:.cpp=.o)
 

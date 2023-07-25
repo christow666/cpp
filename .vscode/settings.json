@@ -69,6 +69,11 @@
 		"numeric": "cpp",
 		"random": "cpp",
 		"iomanip": "cpp",
-		"numbers": "cpp"
+		"numbers": "cpp",
+		"__functional_base_03": "cpp",
+		"__tree": "cpp",
+		"fstream": "cpp",
+		"map": "cpp",
+		"stack": "cpp"
 	}
 }

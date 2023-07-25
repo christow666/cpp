@@ -1,4 +1,4 @@
-NAME = Attack
+NAME = Sed
 
 CC = c++
 
@@ -7,9 +7,6 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 SRC =	main.cpp\
-		Weapon.cpp\
-		HumanA.cpp\
-		HumanB.cpp
 
 OBJS = $(SRC:.cpp=.o)
 
@@ -29,8 +26,8 @@ fclean:clean
 
 re:fclean all
 
-run:all
-	./$(NAME)
+# run:all
+# 	./$(NAME)
 
 leaks:all
 	 valgrind --leak-check=yes ./$(NAME)

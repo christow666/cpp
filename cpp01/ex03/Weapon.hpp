@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 21:55:08 by cperron           #+#    #+#             */
-/*   Updated: 2023/07/12 22:47:16 by cperron          ###   ########.fr       */
+/*   Updated: 2023/07/17 18:44:02 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 class Weapon {
 private:
 	std::string type;
+	Weapon();
 	
 public:
-	Weapon();
 	Weapon(std::string type);
 	
 	const std::string&	getType();

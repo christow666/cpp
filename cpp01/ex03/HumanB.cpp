@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 22:09:31 by cperron           #+#    #+#             */
-/*   Updated: 2023/07/17 18:34:06 by cperron          ###   ########.fr       */
+/*   Created: 2023/07/12 22:09:16 by cperron           #+#    #+#             */
+/*   Updated: 2023/07/17 19:16:48 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-#define HUMANA_HPP
+#include "HumanB.hpp"
 
-#include <iostream>
-#include <string>
-#include "Weapon.hpp"
+HumanB::HumanB(const std::string &name) : name(name), weapon(NULL) {
+}
 
-class HumanA {
-private:
-	Weapon &weapon;
-	std::string name;
-	HumanA();
+void	HumanB::setWeapon(Weapon &weapon){
+	this->weapon = &weapon;
+}
+
+void	HumanB::attack() const{
 	
-public:
-	HumanA(std::string name, Weapon &weapon);
-	
-	void	attack();
-} ;
-
-#endif
+	if (!weapon)
+		std::cout << name << " attackz with f*ckall "<< std::endl;
+	else
+		std::cout << name << " attackz with their " << weapon->getType() << std::endl;
+}
