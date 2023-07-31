@@ -74,6 +74,8 @@
 		"__tree": "cpp",
 		"fstream": "cpp",
 		"map": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"__memory": "cpp",
+		"filesystem": "cpp"
 	}
 }
