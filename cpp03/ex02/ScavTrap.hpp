@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:58:48 by cperron           #+#    #+#             */
-/*   Updated: 2023/07/31 12:28:02 by cperron          ###   ########.fr       */
+/*   Updated: 2023/07/31 18:38:21 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,5 @@ public:
 	void 	decrementIsAKeeper();
 	void	guardGate();
 } ;
+ 
+

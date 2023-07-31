@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 00:05:54 by cperron           #+#    #+#             */
-/*   Updated: 2023/07/31 12:02:39 by cperron          ###   ########.fr       */
+/*   Updated: 2023/07/31 15:47:37 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 	ClapTrap& operator=(const ClapTrap& other);
 	virtual ~ClapTrap();
 
-	virtual void someVirtualFunction();
+	// virtual void someVirtualFunction();
 	
 	std::string	getName()const;
 	int		getHitPoint()const;

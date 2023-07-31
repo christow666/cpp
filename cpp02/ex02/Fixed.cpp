@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 22:25:42 by cperron           #+#    #+#             */
-/*   Updated: 2023/07/30 21:48:58 by cperron          ###   ########.fr       */
+/*   Updated: 2023/07/31 15:52:52 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ Fixed	Fixed::operator- (const Fixed& fixed)const{
 			static_cast<float>(fixed._value) / (1 << _fractionalBits)));
 }
 
-Fixed Fixed::operator*(const Fixed& rhs) const{
+Fixed Fixed::operator*(const Fixed& other) const{
 	Fixed result;
 	
-	result.setRawBits((_value * rhs.getRawBits()) >> _fractionalBits);
+	result.setRawBits((_value * other.getRawBits()) >> _fractionalBits);
 	return result;
 }
 

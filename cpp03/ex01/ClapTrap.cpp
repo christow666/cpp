@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 00:10:10 by cperron           #+#    #+#             */
-/*   Updated: 2023/07/31 13:37:28 by cperron          ###   ########.fr       */
+/*   Updated: 2023/07/31 15:46:36 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other){
 	return *this;
 }
 
-void ClapTrap::someVirtualFunction() {
-}
+// void ClapTrap::someVirtualFunction() {
+// }
 
 //////////////////////////////////////////////////////////////////////
 //                             GETTER                               //
