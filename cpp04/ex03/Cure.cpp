@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 00:48:14 by cperron           #+#    #+#             */
-/*   Updated: 2023/09/05 01:10:21 by cperron          ###   ########.fr       */
+/*   Updated: 2023/09/05 14:52:57 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ Cure& Cure::operator=(const Cure &other){
 	return *this;
 }
 
-Cure::~Cure(){}
+Cure::~Cure(){
+	// delete this;
+}
 
 std::string const &Cure::getType() const{
 	return _type;
@@ -59,6 +61,7 @@ std::string const &Cure::getType() const{
 AMateria* Cure::clone() const{
 	return (new Cure(*this));
 }
+
 
 void Cure::use(ICharacter& target){
 	std::cout << "* heals "

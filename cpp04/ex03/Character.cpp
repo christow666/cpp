@@ -6,14 +6,14 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 00:32:22 by cperron           #+#    #+#             */
-/*   Updated: 2023/09/05 01:25:30 by cperron          ###   ########.fr       */
+/*   Updated: 2023/09/05 15:42:52 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Character.hpp"
 
-Character::Character(std::string const &name) : _name(name) {
+Character::Character(std::string const &name) : _name(name), _pointerCount(0) {
 	for (int i = 0; i < 4; i++){
 		_inventory[i] = NULL;
 	}
@@ -74,8 +74,10 @@ void Character::unequip(int idx){
 }
 
 void Character::use(int idx, ICharacter& target){
-	if (_inventory[idx])
-		_inventory[idx]->use(target);
+	if (idx < 4){
+		if (_inventory[idx])
+			_inventory[idx]->use(target);
+	}
 }
 
 void Character::addFloor(AMateria *materia) {
