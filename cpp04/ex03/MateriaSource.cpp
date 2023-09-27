@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 00:54:15 by cperron           #+#    #+#             */
-/*   Updated: 2023/09/05 15:24:44 by cperron          ###   ########.fr       */
+/*   Updated: 2023/09/18 20:14:17 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void MateriaSource::learnMateria(AMateria* m) {
     for (int i = 0; i < 4; ++i) {
         if (!_inventory[i]) {
             _inventory[i] = m->clone();
-		delete m; // why? <----------------------------------------
+		// delete m; // why? <----------------------------------------
             return;
         }
     }

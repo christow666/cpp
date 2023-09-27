@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 00:32:22 by cperron           #+#    #+#             */
-/*   Updated: 2023/09/05 15:42:52 by cperron          ###   ########.fr       */
+/*   Updated: 2023/09/18 18:26:58 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ Character::~Character(){
 		if (_inventory[i])
 			delete _inventory[i];	
 	}
+	clearFloor();
 }
 
 std::string const &Character::getName() const{
