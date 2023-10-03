@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:07:05 by cperron           #+#    #+#             */
-/*   Updated: 2023/09/23 16:49:56 by cperron          ###   ########.fr       */
+/*   Updated: 2023/09/28 12:20:27 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Animal::Animal(const Animal& other) : _type(other._type){
 }
 
 Animal& Animal::operator=(const Animal& other) {
-	 if (this != &other) {
+	if (this != &other) {
         _type = other._type;
     }
     return *this;
