@@ -6,11 +6,12 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:57:22 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/03 16:01:38 by cperron          ###   ########.fr       */
+/*   Updated: 2023/10/03 17:22:59 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(){}
 
@@ -58,6 +59,16 @@ void Bureaucrat::decrementGrade(uint8_t amount){
 	if (_grade + amount > 150)
 		throw GradeTooLowExeption();
 	_grade += amount;
+}
+
+void Bureaucrat::signForm(Form &form) {
+	try {
+		form.beSigned(*this);
+		std::cout << getName() << " signed " << form.getFormName() << std::endl;
+	}
+	catch (std::exception &e){
+		std::cout << getName() << " Couldn't sign " << form.getFormName() << " form because "<< e.what() << std::endl;
+	}
 }
 
 std::ostream& operator<< (std::ostream &out, const Bureaucrat &other) {

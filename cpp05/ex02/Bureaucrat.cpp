@@ -6,11 +6,12 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:57:22 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/03 16:01:38 by cperron          ###   ########.fr       */
+/*   Updated: 2023/10/04 15:56:06 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(){}
 
@@ -41,11 +42,15 @@ const uint8_t &Bureaucrat::getGrade() const{
 }
 
 const char* Bureaucrat::GradeTooLowExeption::what() const throw(){
-	return "is too low";
+	return "grade is too low";
 }
 
 const char* Bureaucrat::GradeTooHighExeption::what() const throw(){
-	return "is too high";
+	return "grade is too high";
+}
+
+const char* Bureaucrat::FormNotSignedExeption::what() const throw(){
+	return "is not signed";
 }
 
 void Bureaucrat::incrementGrade(uint8_t amount){
@@ -58,6 +63,16 @@ void Bureaucrat::decrementGrade(uint8_t amount){
 	if (_grade + amount > 150)
 		throw GradeTooLowExeption();
 	_grade += amount;
+}
+
+void Bureaucrat::signAForm(AForm &Aform) {
+	try {
+		Aform.beSigned(*this);
+		std::cout << getName() << " signed " << Aform.getAFormName() << std::endl;
+	}
+	catch (std::exception &e){
+		std::cout << getName() << " Couldn't sign " << Aform.getAFormName() << " because "<< e.what() << std::endl;
+	}
 }
 
 std::ostream& operator<< (std::ostream &out, const Bureaucrat &other) {
