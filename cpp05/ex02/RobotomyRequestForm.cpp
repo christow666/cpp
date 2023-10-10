@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:58:03 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/10 18:03:25 by cperron          ###   ########.fr       */
+/*   Updated: 2023/10/10 18:18:27 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::executeAction() const {
-	system("osascript -e \"set volume output volume 50\"");
+	system("osascript -e \"set volume output volume 30\"");
 	system("afplay DrillSound.mp3&");
 	// system("sleep 10 | afplay DrillSound.mp3&");
     std::cout << "Drilling noises..." << std::endl;

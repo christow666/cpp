@@ -11,7 +11,7 @@ SRC =	main.cpp\
 		AForm.cpp\
 		ShrubberyCreationForm.cpp\
 		RobotomyRequestForm.cpp\
-		# PresidentialPardonForm.cpp\
+		PresidentialPardonForm.cpp\
 
 
 OBJS = $(SRC:.cpp=.o)
