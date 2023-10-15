@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:56:19 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/10 19:46:45 by cperron          ###   ########.fr       */
+/*   Updated: 2023/10/10 20:40:52 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int main() {
     // Example usage of the Intern class
     AForm* form1 = intern.makeForm("ShrubberyCreationForm", "garden");
     AForm* form2 = intern.makeForm("RobotomyRequestForm", "patient");
+	AForm* form3 = intern.makeForm("BadForm", "patient");
+	(void)form3;
 
     if (form1 != nullptr && form2 != nullptr) {
         // Attempt to sign and execute the forms
