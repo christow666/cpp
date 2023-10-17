@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:57:22 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/04 15:56:06 by cperron          ###   ########.fr       */
+/*   Updated: 2023/10/17 17:07:13 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ void Bureaucrat::signAForm(AForm &Aform) {
 	catch (std::exception &e){
 		std::cout << getName() << " Couldn't sign " << Aform.getAFormName() << " because "<< e.what() << std::endl;
 	}
+}
+
+void Bureaucrat::executeForm(AForm const &form){
+	form.execute(*this);
 }
 
 std::ostream& operator<< (std::ostream &out, const Bureaucrat &other) {

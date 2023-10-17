@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:57:06 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/04 15:32:42 by cperron          ###   ########.fr       */
+/*   Updated: 2023/10/17 17:06:57 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ public:
 	void decrementGrade(uint8_t grade);
 
 	void signAForm(AForm &Aform);
+	void executeForm(AForm const &form);
 };
 
 std::ostream& operator<< (std::ostream &out, const Bureaucrat &other);

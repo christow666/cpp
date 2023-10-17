@@ -71,3 +71,4 @@ std::ostream &operator<<(std::ostream &out, const AForm &other) {
       << " Is signed:" << other.getIsSigned() << std::endl;
   return out;
 }
+

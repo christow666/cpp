@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:56:19 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/10 18:22:05 by cperron          ###   ########.fr       */
+/*   Updated: 2023/10/17 17:05:26 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,8 +183,6 @@ int main() {
 	// 	// Attempt to sign the form
 	// 	std::cout << "Signing the form..." << std::endl;
 	// 	signer.signAForm(robotomyForm);
-
-		
 
 	// 	// Execute the form
 	// 	std::cout << "Executing the form (signed)..." << std::endl;
