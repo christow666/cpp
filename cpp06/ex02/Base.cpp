@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:38:54 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/15 17:02:09 by cperron          ###   ########.fr       */
+/*   Updated: 2023/10/24 16:22:26 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ void Base::identify(Base* p) {
         std::cout << "Base reference is C" << std::endl;
 	}
 }
+// If the cast is successful, dynamic_cast returns a value of type target-type. If the cast fails and target-type 
+// is a pointer type, it returns a null pointer of that type. If the cast fails and target-type is a reference 
+// type, it throws an exception that matches a handler of type std::bad_cast.
 
 void Base::identify(Base& p) {
   std::cout << "Identifying reference type" << std::endl;
@@ -51,17 +54,17 @@ void Base::identify(Base& p) {
     (void)aResult;
     std::cout << "Base reference is A" << std::endl;
 	return ;
-  } catch (std::exception &exception) {}
+  } catch (std::bad_cast &exception) {}
   try {
     B &bResult = dynamic_cast<B &>(p);
     (void)bResult;
     std::cout << "Base reference is B" << std::endl;
 	return ;
-  } catch (std::exception &exception) {}
+  } catch (std::bad_cast &exception) {}
   try {
     C &cResult = dynamic_cast<C &>(p);
     (void)cResult;
     std::cout << "Base reference is C" << std::endl;
-  } catch (std::exception &exception) {}
+  } catch (std::bad_cast &exception) {}
 }
 

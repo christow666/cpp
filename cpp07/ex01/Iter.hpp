@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 15:46:27 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/24 16:23:49 by cperron          ###   ########.fr       */
+/*   Created: 2023/11/01 10:56:47 by cperron           #+#    #+#             */
+/*   Updated: 2023/11/01 11:06:49 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
-#include <cstdlib>
-#include <time.h>
+#pragma once
+#include <iostream>
 
-int main() {
-    Base randomObject;
-	Base *ptr = randomObject.generate();
-	
-    randomObject.identify(ptr);
+template <typename T, size_t N>
+size_t arraySize(const T (&)[N]) {
+    return N;
+}
 
-	Base& ref = *ptr;
-    
-    randomObject.identify(ref);
+template <typename T>
+void iter(T *array, int array_size, void func(T const &content)){
+	for (int index = 0; index < array_size; index++){
+		func(array[index]);
+	}
+}
 
-	delete ptr;
-
-    return 0;
+template <typename T>
+void printElement(T element){
+	std::cout << element << " ";
 }

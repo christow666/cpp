@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 22:20:56 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/15 14:57:02 by cperron          ###   ########.fr       */
+/*   Updated: 2023/10/24 15:45:57 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ private:
 	const std::string _argument;
 	std::string _type;
 	Converter();
-
-	// char _charValue;
-	// int _intValue;
-	// float _floatValue;
-	// double _doubleValue;
 	
 public:
 	Converter(char *argument);

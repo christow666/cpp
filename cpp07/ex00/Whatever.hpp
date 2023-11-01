@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 15:46:27 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/24 16:23:49 by cperron          ###   ########.fr       */
+/*   Created: 2023/11/01 09:25:57 by cperron           #+#    #+#             */
+/*   Updated: 2023/11/01 09:53:36 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
-#include <cstdlib>
-#include <time.h>
+#pragma once
 
-int main() {
-    Base randomObject;
-	Base *ptr = randomObject.generate();
-	
-    randomObject.identify(ptr);
-
-	Base& ref = *ptr;
-    
-    randomObject.identify(ref);
-
-	delete ptr;
-
-    return 0;
+#include <iostream>
+template <typename T> void swap(T &x , T &y){
+	T temp = x;
+	x = y;
+	y = temp;
 }
+
+template <typename T> T min(T const &x, T const &y){
+	return (x <= y ? x : y);
+}
+
+template <typename T> T max(T const &x, T const &y){
+	return (x >= y ? x : y);
+}
+

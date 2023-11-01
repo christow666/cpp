@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 10:56:19 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/17 17:05:26 by cperron          ###   ########.fr       */
+/*   Updated: 2023/10/18 17:59:02 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,7 +228,7 @@ int main() {
 		std::cerr << "Failed to execute : " << e.what() << std::endl;
 	}
 
-	std::cout << "\033[1;31m succes (president)\033[0m\n" << std::endl;
+	std::cout << "\033[1;31m succes with executeFrom (president)\033[0m\n" << std::endl;
 	try {
 		// Create a bureaucrat with a grade that can sign and execute the form
 		Bureaucrat signer("John", 1); // Adjust the grade as needed
@@ -252,7 +252,7 @@ int main() {
 
 		// Execute the form
 		std::cout << "Executing the form (signed)..." << std::endl;
-		PresidentialFrom.execute(executor);
+		executor.executeForm(PresidentialFrom);
 	} catch (const Bureaucrat::FormNotSignedExeption& e) {
 		// Catch and handle the FormNotSignedException
 		std::cerr << "Failed to execute the form: " << e.what() << std::endl;
@@ -260,5 +260,6 @@ int main() {
 		// Catch and handle the GradeTooLowException
 		std::cerr << "Failed to execute : " << e.what() << std::endl;
 	}
+	
     return 0;
 }

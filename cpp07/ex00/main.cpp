@@ -5,29 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 15:46:27 by cperron           #+#    #+#             */
-/*   Updated: 2023/10/24 16:23:49 by cperron          ###   ########.fr       */
+/*   Created: 2023/11/01 09:21:48 by cperron           #+#    #+#             */
+/*   Updated: 2023/11/01 09:54:27 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
-#include <cstdlib>
-#include <time.h>
+#include <iostream>
+#include "Whatever.hpp"
 
-int main() {
-    Base randomObject;
-	Base *ptr = randomObject.generate();
-	
-    randomObject.identify(ptr);
-
-	Base& ref = *ptr;
-    
-    randomObject.identify(ref);
-
-	delete ptr;
-
-    return 0;
+int main( void ) {
+	int a = 2;
+	int b = 3;
+	::swap( a, b );
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	std::string c = "chaine1";
+	std::string d = "chaine2";
+	::swap(c, d);
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	return 0;
 }
