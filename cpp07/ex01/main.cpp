@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:56:51 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/01 11:05:58 by cperron          ###   ########.fr       */
+/*   Updated: 2023/11/01 11:14:44 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main() {
     double doubleArray[] = {1.1, 2.2, 3.3, 4.4, 5.5};
     size_t doubleArraySize = arraySize(doubleArray);
 
-    std::cout << "docule Array : ";
+    std::cout << "double Array : ";
     iter(doubleArray, doubleArraySize, printElement);
     std::cout << std::endl;
 
