@@ -76,6 +76,8 @@
 		"map": "cpp",
 		"stack": "cpp",
 		"__memory": "cpp",
-		"filesystem": "cpp"
+		"filesystem": "cpp",
+		"span": "cpp",
+		"__functional_03": "cpp"
 	}
 }

@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Whatever.hpp                                       :+:      :+:    :+:   */
+/*   easyFind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 09:25:57 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/01 15:29:49 by cperron          ###   ########.fr       */
+/*   Created: 2023/11/01 13:50:32 by cperron           #+#    #+#             */
+/*   Updated: 2023/11/01 14:26:10 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include <algorithm>
 
-#include <iostream>
-template <typename T> void swap(T &x , T &y){
-	T temp = x;
-	x = y;
-	y = temp;
+template <typename T>  
+typename T::iterator  easyfind (T &c, int x){
+	return(find(c.begin(), c.end(), x));
 }
-
-template <typename T> T min(T const &x, T const &y){
-	return (x < y ? x : y);
-}
-
-template <typename T> T max(T const &x, T const &y){
-	return (x > y ? x : y);
-}
-

@@ -6,12 +6,13 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 10:56:47 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/01 11:06:49 by cperron          ###   ########.fr       */
+/*   Updated: 2023/11/02 10:11:10 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
+#include <algorithm>
 
 template <typename T, size_t N>
 size_t arraySize(const T (&)[N]) {
