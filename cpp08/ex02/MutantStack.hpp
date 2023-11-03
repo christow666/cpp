@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 15:24:57 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/02 15:44:56 by cperron          ###   ########.fr       */
+/*   Updated: 2023/11/03 10:47:34 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ public:
 	MutantStack(const MutantStack &other) { 
 		*this = other; 
 	};
-	~MutantStack(){};
-
 	MutantStack &operator=(const MutantStack &other) { 
 		(void)other;
 		return *this;
 	}
+	~MutantStack(){};
+
 	
     typedef typename std::stack<T>::container_type::iterator iterator;
     typedef typename std::stack<T>::container_type::const_iterator const_iterator;

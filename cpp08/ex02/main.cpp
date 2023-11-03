@@ -5,223 +5,153 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 15:14:13 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/02 15:56:26 by cperron          ###   ########.fr       */
+/*   Created: 2023/11/03 09:17:11 by cperron           #+#    #+#             */
+/*   Updated: 2023/11/03 11:23:53 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MutantStack.hpp"
 #include <iostream>
 #include <stack>
 #include <iterator>
-#include <vector>
 #include <list>
-#define RED "\033[31m"
-#define DEF "\033[0m"
+#include "MutantStack.hpp"
 
-using std::cout;
-using std::list;
-using std::string;
-using std::vector;
-void mutantStackTest()
-{
-    cout << RED << "MutantStack Test: " << DEF << std::endl;
-    MutantStack<int> mstack;
-    mstack.push(5);
-    mstack.push(17);
-    std::cout << "first:    " << mstack.top() << std::endl;
-    mstack.pop();
-    std::cout << "size:     " << mstack.size() << std::endl;
-    mstack.push(3);
-    mstack.push(5);
-    mstack.push(737);
-    mstack.push(0);
-    cout << "Iterator: " << std::endl;
-    MutantStack<int>::iterator it = mstack.begin();
-    MutantStack<int>::iterator ite = mstack.end();
-    ++it;
-    --it;
-    while (it != ite)
-    {
-        std::cout << *it << std::endl;
-        ++it;
-    }
-    cout << "Reverse iterator: " << std::endl;
-    MutantStack<int>::reverse_iterator rit = mstack.rbegin();
-    MutantStack<int>::reverse_iterator rite = mstack.rend();
+void mutantTest(){
+	// Mutant test
+	std::cout << "Mutant --------------------------------" << std::endl;
 
-    ++rit;
-    --rit;
-    while (rit != rite)
-    {
-        std::cout << *rit << std::endl;
-        ++rit;
-    }
+	MutantStack<int> mstack;
+	mstack.push(5);
+	mstack.push(17);
+	std::cout << "Last added : " << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << "Current size : " << mstack.size() << std::endl;
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+	
+	std::cout << "Iterator: " << std::endl;
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite){
+		std::cout << *it << " " ;
+		// *it = 2; // not constant so we can change
+		++it;
+	}
+	std::cout << std::endl;
 
-    cout << "Constant iterator: " << std::endl;
+	std::cout << "Constant iterator: " << std::endl;
     MutantStack<int>::const_iterator cit = mstack.begin();
     MutantStack<int>::const_iterator cite = mstack.end();
-
-    ++cit;
+	++cit;
     --cit;
-    while (cit != cite)
-    {
-        std::cout << *cit << std::endl;
-        // Uncomenting the next line should give a compilation error since the iterator is constant, no modif allowed.
-        // *cit = 2;
+	while (cit != cite){
+        std::cout << *cit << " " ;
+		// *cit = 2; // constant so won't compile
         ++cit;
     }
+	std::cout << std::endl;
+	
+	std::cout << "Reverse iterator: " << std::endl;
+    MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+    MutantStack<int>::reverse_iterator rite = mstack.rend();
+    ++rit;
+    --rit;
+    while (rit != rite){
+        std::cout << *rit << " " ;
+		// *rit = 2; // not constant so we can change
+        ++rit;
+    }
+	std::cout << std::endl;
 
-    cout << "Constant reverse iterator: " << std::endl;
+	std::cout << "Constant reverse iterator: " << std::endl;
     MutantStack<int>::const_reverse_iterator crit = mstack.rbegin();
     MutantStack<int>::const_reverse_iterator crite = mstack.rend();
-
     ++crit;
     --crit;
-    while (crit != crite)
-    {
-        std::cout << *crit << std::endl;
-        // Uncomenting the next line should give a compilation error since the iterator is constant, no modif allowed.
-        // *crit = 2;
+    while (crit != crite){
+        std::cout << *crit << " " ;
+		// *crit = 2; // constant so won't compile
         ++crit;
     }
-    std::stack<int> s(mstack);
-    cout << std::endl;
+	std::cout << std::endl;
+	
+	std::stack<int> s(mstack);
+	std::cout << std::endl;
 }
 
-void listTest()
-{
-    cout << RED << "List Test:" << DEF << std::endl;
-    list<int> lst;
-    lst.push_back(5);
-    lst.push_back(17);
-    std::cout << "first:    " << lst.back() << std::endl;
-    lst.pop_back();
-    std::cout << "size:     " << lst.size() << std::endl;
-    lst.push_back(3);
-    lst.push_back(5);
-    lst.push_back(737);
-    lst.push_back(0);
-    cout << "Iterator: " << std::endl;
-    list<int>::iterator it = lst.begin();
-    list<int>::iterator ite = lst.end();
-    ++it;
-    --it;
-    while (it != ite)
-    {
-        std::cout << *it << std::endl;
-        ++it;
-    }
-    cout << "Reverse iterator: " << std::endl;
-    list<int>::reverse_iterator rit = lst.rbegin();
-    list<int>::reverse_iterator rite = lst.rend();
+int main() {
+	mutantTest();
+	
+	// list test
+	std::cout << "List --------------------------------" << std::endl;
 
-    ++rit;
-    --rit;
-    while (rit != rite)
-    {
-        std::cout << *rit << std::endl;
-        ++rit;
-    }
-    cout << "Constant iterator: " << std::endl;
-    list<int>::const_iterator cit = lst.begin();
-    list<int>::const_iterator cite = lst.end();
+	std::list<int> lstack;
+	lstack.push_back(5);
+	lstack.push_back(17);
+	std::cout << "Last added  : " << lstack.back() << std::endl;
+	lstack.pop_back();
+	std::cout << "Current size : " << lstack.size() << std::endl;
+	lstack.push_back(3);
+	lstack.push_back(5);
+	lstack.push_back(737);
+	//[...]
+	lstack.push_back(0);
+	
+	std::cout << "Iterator: " << std::endl;
+	std::list<int>::iterator it = lstack.begin();
+	std::list<int>::iterator ite = lstack.end();
+	++it;
+	--it;
+	while (it != ite){
+		std::cout << *it << " " ;
+		// *it = 2; // not constant so we can change
+		++it;
+	}
+	std::cout << std::endl;
 
-    ++cit;
+	std::cout << "Constant iterator: " << std::endl;
+    std::list<int>::const_iterator cit = lstack.begin();
+    std::list<int>::const_iterator cite = lstack.end();
+	++cit;
     --cit;
-    while (cit != cite)
-    {
-        std::cout << *cit << std::endl;
-        // Uncomenting the next line should give a compilation error since the iterator is constant, no modif allowed.
-        // *cit = 2;
+	while (cit != cite){
+        std::cout << *cit << " " ;
+		// *cit = 2; // constant so won't compile
         ++cit;
     }
-
-    cout << "Constant reverse iterator: " << std::endl;
-    list<int>::const_reverse_iterator crit = lst.rbegin();
-    list<int>::const_reverse_iterator crite = lst.rend();
-
-    ++crit;
-    --crit;
-    while (crit != crite)
-    {
-        std::cout << *crit << std::endl;
-        // Uncomenting the next line should give a compilation error since the iterator is constant, no modif allowed.
-        // *crit = 2;
-        ++crit;
-    }
-    list<int> s(lst);
-    cout << std::endl;
-}
-
-void vectorTest()
-{
-    cout << RED << "Vector Test:" << DEF << std::endl;
-    vector<int> vec;
-    vec.push_back(5);
-    vec.push_back(17);
-    std::cout << "first:    " << vec.back() << std::endl;
-    vec.erase(vec.end() - 1);
-    std::cout << "size:     " << vec.size() << std::endl;   
-    vec.push_back(3);
-    vec.push_back(5);
-    vec.push_back(737);
-    vec.push_back(0);
-    cout << "Iterator: " << std::endl;
-    vector<int>::iterator it = vec.begin();
-    vector<int>::iterator ite = vec.end();
-    ++it;
-    --it;
-    while (it != ite)
-    {
-        std::cout << *it << std::endl;
-        ++it;
-    }
-    cout << "Reverse iterator: " << std::endl;
-    vector<int>::reverse_iterator rit = vec.rbegin();
-    vector<int>::reverse_iterator rite = vec.rend();
-
+	std::cout << std::endl;
+	
+	std::cout << "Reverse iterator: " << std::endl;
+    std::list<int>::reverse_iterator rit = lstack.rbegin();
+    std::list<int>::reverse_iterator rite = lstack.rend();
     ++rit;
     --rit;
-    while (rit != rite)
-    {
-        std::cout << *rit << std::endl;
+    while (rit != rite){
+        std::cout << *rit << " " ;
+		// *rit = 2; // not constant so we can change
         ++rit;
     }
-    cout << "Constant iterator: " << std::endl;
-    vector<int>::const_iterator cit = vec.begin();
-    vector<int>::const_iterator cite = vec.end();
+	std::cout << std::endl;
 
-    ++cit;
-    --cit;
-    while (cit != cite)
-    {
-        std::cout << *cit << std::endl;
-        // Uncomenting the next line should give a compilation error since the iterator is constant, no modif allowed.
-        // *cit = 2;
-        ++cit;
-    }
-
-    cout << "Constant reverse iterator: " << std::endl;
-    vector<int>::const_reverse_iterator crit = vec.rbegin();
-    vector<int>::const_reverse_iterator crite = vec.rend();
-
+	std::cout << "Constant reverse iterator: " << std::endl;
+    std::list<int>::const_reverse_iterator crit = lstack.rbegin();
+    std::list<int>::const_reverse_iterator crite = lstack.rend();
     ++crit;
     --crit;
-    while (crit != crite)
-    {
-        std::cout << *crit << std::endl;
-        // Uncomenting the next line should give a compilation error since the iterator is constant, no modif allowed.
-        // *crit = 2;
+    while (crit != crite){
+        std::cout << *crit << " " ;
+		// *crit = 2; // constant so won't compile
         ++crit;
     }
-    vector<int> s(vec);
-}
+	std::cout << std::endl;
+	
+	std::list<int> s(lstack);
+	std::cout << std::endl;
 
-int main()
-{
-    mutantStackTest();
-    listTest();
-    vectorTest();
-    return 0;
+	return 0;
 }
