@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:17:51 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/07 10:51:43 by cperron          ###   ########.fr       */
+/*   Updated: 2023/11/07 11:06:23 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ BitcoinExchange::BitcoinExchange(std::string file){
 					i = 0;
 				}
 				else 
-					std::cout << "Conversion failed" << std::endl;
+					// std::cout << "Conversion failed" << std::endl;
+					continue;
 		
 				try {
 					float fvalue = std::stof(value);
@@ -81,9 +82,8 @@ void BitcoinExchange::calculValue(std::string input){
 					i = 0;
 				}
 				else 
-					std::cout << "Conversion failed" << std::endl;
-
-				
+					// std::cout << "Conversion failed" << std::endl;
+					continue;
 				try {
 					if (isValidDate(date)) {
 						float fNumberOfBitcoin = std::stof(numberOfBitcoin);
