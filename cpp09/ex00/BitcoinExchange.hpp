@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:04:50 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/07 10:40:38 by cperron          ###   ########.fr       */
+/*   Updated: 2023/11/07 11:28:01 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ public:
 	void calculValue(std::string input);
 	bool isValidDate(const std::string& dateStr);
 	float findClosestDateValue(int intDate);
-	// std::string findClosestDate(int intDate);
 	
 } ;

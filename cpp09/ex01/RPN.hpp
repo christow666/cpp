@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 09:54:11 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/07 11:26:42 by cperron          ###   ########.fr       */
+/*   Created: 2023/11/07 11:27:38 by cperron           #+#    #+#             */
+/*   Updated: 2023/11/07 11:46:57 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <fstream>
-#include "BitcoinExchange.hpp"
+#include <stack>
 
-int main(int argc, char** argv){
-	if (argc == 2){
-		std::string argument1(argv[1]);
-		BitcoinExchange data("data.csv");
-		data.calculValue(argument1);
-	}
-	else
-		std::cout << "bad number of arg" << std::endl;
-	return 0;
-}
+class RPN {
+private:
+	std::stack<int> _data;
+	std::string _equation;
+	RPN();
+	
+public:
+	RPN(std::string equation);
+	// RPN(const &RPN other);
+	// RPN &operator=(const &RPN other);
+	~RPN();
+
+	void solveEquation();
+} ;
