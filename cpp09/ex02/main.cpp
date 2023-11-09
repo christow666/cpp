@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 11:27:38 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/07 13:45:40 by cperron          ###   ########.fr       */
+/*   Created: 2023/11/07 13:40:53 by cperron           #+#    #+#             */
+/*   Updated: 2023/11/09 11:25:33 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #include <iostream>
-#include <stack>
+#include "PmergeMe.hpp"
 
-class RPN {
-private:
-	std::stack<int> _data;
-	std::string _equation;
-	RPN();
+
+int main(int argc, char **argv){
+	if (argc > 2) {
+		PmergeMe dafuq;
+		dafuq.ftSort(argc, argv);
 	
-public:
-	RPN(std::string equation);
-	// RPN(const &RPN other);
-	// RPN &operator=(const &RPN other);
-	~RPN();
-
-	void solveEquation();
-} ;
+		return 0;
+	}
+	std::cout << "bad number of arg" << std::endl;
+	return 1;
+}

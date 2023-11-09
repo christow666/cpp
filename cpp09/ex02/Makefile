@@ -1,4 +1,4 @@
-NAME = Array
+																																																																		NAME = PmergeMe
 
 CC = c++
 
@@ -7,9 +7,10 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 SRC =	main.cpp\
+		PmergeMe.cpp\
 
 
-OBJS = $(SRC:.cpp=.o)
+OBJS = $(SRC:.cpp=.o)§
 
 all: $(NAME)
 
@@ -27,10 +28,10 @@ fclean:clean
 
 re:fclean all
 
-run: all
+run:all
 	./$(NAME)
 
-leaks: all
-	valgrind --leak-check=yes ./$(NAME)
+leaks:all
+	 valgrind --leak-check=yes ./$(NAME)
 
 .PHONY: all clean re fclean run leaks

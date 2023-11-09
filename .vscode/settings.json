@@ -78,6 +78,7 @@
 		"__memory": "cpp",
 		"filesystem": "cpp",
 		"span": "cpp",
-		"__functional_03": "cpp"
+		"__functional_03": "cpp",
+		"list": "cpp"
 	}
 }
