@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:17:51 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/07 16:07:43 by cperron          ###   ########.fr       */
+/*   Updated: 2023/11/13 10:01:23 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,17 @@ BitcoinExchange::BitcoinExchange(std::string file){
 	else
 		std::cout << "Failed to open file" <<std::endl;
 	data.close();
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other){
+	 _data = other._data;
+}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other) {
+    if (this != &other) {
+        _data = other._data;
+    }
+    return *this;
 }
 
 BitcoinExchange::~BitcoinExchange(){};

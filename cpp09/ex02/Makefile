@@ -1,4 +1,4 @@
-																																																																		NAME = PmergeMe
+NAME = PmergeMe
 
 CC = c++
 
@@ -10,7 +10,7 @@ SRC =	main.cpp\
 		PmergeMe.cpp\
 
 
-OBJS = $(SRC:.cpp=.o)§
+OBJS = $(SRC:.cpp=.o)
 
 all: $(NAME)
 

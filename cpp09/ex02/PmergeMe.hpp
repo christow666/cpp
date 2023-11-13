@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:45:30 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/09 11:09:00 by cperron          ###   ########.fr       */
+/*   Updated: 2023/11/13 10:07:47 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@
 
 class PmergeMe {
 private:
-	// std::vector<int> _vData;
 
 public:
 	PmergeMe();
-	// PmergeMe(const PmergeMe &other);
-	// PmergeMe &operator=(const PmergeMe &ohter);
+	PmergeMe(const PmergeMe &other);
+	PmergeMe &operator=(const PmergeMe &ohter);
 	~PmergeMe();
 
 	void ftSort(int argc, char **argv);

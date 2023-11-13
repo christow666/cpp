@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:27:38 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/07 13:45:40 by cperron          ###   ########.fr       */
+/*   Updated: 2023/11/13 10:04:05 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ private:
 	
 public:
 	RPN(std::string equation);
-	// RPN(const &RPN other);
-	// RPN &operator=(const &RPN other);
+	RPN(const RPN& other);
+	RPN &operator=(const RPN& other);
 	~RPN();
 
 	void solveEquation();

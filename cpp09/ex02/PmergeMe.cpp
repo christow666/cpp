@@ -6,13 +6,22 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:00:42 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/09 11:20:40 by cperron          ###   ########.fr       */
+/*   Updated: 2023/11/13 10:09:22 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe(){}
+
+PmergeMe::PmergeMe(const PmergeMe &other) {
+	(void)other;
+}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe &other) {
+	(void)other;
+    return *this;
+}
 
 void PmergeMe::ftSort(int argc, char **argv){
 	for (int i = 1; i < argc; i++) {
