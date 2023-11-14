@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:00:42 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/13 10:09:22 by cperron          ###   ########.fr       */
+/*   Updated: 2023/11/13 15:55:40 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,7 +194,7 @@ void PmergeMe::sortDeque(int argc, char **argv){
 		else
 			duo.push_back(std::make_pair(number1, -1));
 	}
-	for(std::deque<std::pair<int, int > >::iterator it = duo.begin(); it != duo.end(); ++it){ // 2nd step
+	for(std::deque<std::pair<int, int > >::iterator it = duo.begin(); it != duo.end(); ++it){ 
 		if (it->first > it->second && it->second != -1)
 			std::swap(it->first, it->second);
 	}

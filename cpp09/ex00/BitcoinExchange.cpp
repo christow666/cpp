@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:17:51 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/13 10:01:23 by cperron          ###   ########.fr       */
+/*   Updated: 2023/11/13 16:04:54 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ bool BitcoinExchange::isValidDate(const std::string& dateStr) {
     int month = tm.tm_mon + 1;
     int day = tm.tm_mday;
 
-    if (year < 2009 || month < 1 || month > 12 || day < 1 || day > 31) {
+    if (year < 2009 || year > 2023 || month < 1 || month > 12 || day < 1 || day > 31) {
     	throw std::runtime_error("Error: invalid date " + dateStr);
     }
 	return true;

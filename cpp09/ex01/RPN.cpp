@@ -6,7 +6,7 @@
 /*   By: cperron <cperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:33:41 by cperron           #+#    #+#             */
-/*   Updated: 2023/11/13 10:03:05 by cperron          ###   ########.fr       */
+/*   Updated: 2023/11/14 11:22:33 by cperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ RPN& RPN::operator=(const RPN& other) {
 RPN::RPN(std::string equation) : _equation(equation) {}
 
 void RPN::solveEquation(){
+
 	for (std::string::iterator it = _equation.begin(); it != _equation.end(); ++it) {
         char c = *it;
-		if (c >= '0' && c <= '9'){
+		// std::cout << "bad arg" << std::endl;
+		if (c >= '0' && c <= '9' && (*(it +1) == ' ' || *(it +1) == '\0')){
 			_data.push(atoi(&c));
 		}
 		else if (c == ' ')
@@ -61,7 +63,11 @@ void RPN::solveEquation(){
 			return ;
 		}
     }
-	std::cout << _data.top() << std::endl;
+	if (_data.size() == 1)
+		std::cout << _data.top() << std::endl;
+	else
+		std::cout << "you failed at beeing a good reverse polish notation" << std::endl;
+
 }
 
 RPN::~RPN(){}
